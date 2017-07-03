@@ -5,7 +5,7 @@
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
-    "Contact": 10
+    "Contact": 23
   },
   "models": {
     "User": {},
@@ -14,8 +14,8 @@
     "RoleMapping": {},
     "Role": {},
     "Contact": {
-      "1": "{\"name\":\"John Appleseed\",\"email\":\"john.appleseed@example.com\",\"phone\":\"555-555-557\",\"id\":1}",
-      "2": "{\"name\":\"John Doe\",\"email\":\"john.doe@example.com\",\"phone\":\"555-555-555\",\"id\":2}"
+      "21": "{\"name\":\"John Appleseed\",\"email\":\"john.appleseed@example.com\",\"phone\":\"555-555-555\",\"id\":21}",
+      "22": "{\"name\":\"John Doe\",\"email\":\"john.doe@example.fr\",\"phone\":\"555-555-557\",\"id\":22}"
     }
   }
 }
