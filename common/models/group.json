@@ -1,5 +1,5 @@
 {
-  "name": "Contact",
+  "name": "Group",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -9,20 +9,14 @@
     "name": {
       "type": "string",
       "required": true
-    },
-    "email": {
-      "type": "string"
-    },
-    "phone": {
-      "type": "string"
     }
   },
   "validations": [],
   "relations": {
-    "groups": {
+    "contacts": {
       "type": "hasMany",
-      "model": "Group",
-      "foreignKey": "contactId",
+      "model": "Contact",
+      "foreignKey": "groupId",
       "through": "GroupContact"
     }
   },

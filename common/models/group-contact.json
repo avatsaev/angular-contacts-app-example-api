@@ -1,0 +1,33 @@
+{
+  "name": "GroupContact",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "contactId": {
+      "type": "number",
+      "required": true
+    },
+    "groupId": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "group": {
+      "type": "belongsTo",
+      "model": "Group",
+      "foreignKey": ""
+    },
+    "contact": {
+      "type": "belongsTo",
+      "model": "Contact",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

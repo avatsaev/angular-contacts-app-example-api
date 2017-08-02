@@ -38,5 +38,13 @@
   "Contact": {
     "dataSource": "db",
     "public": true
+  },
+  "Group": {
+    "dataSource": "db",
+    "public": true
+  },
+  "GroupContact": {
+    "dataSource": "db",
+    "public": true
   }
 }
