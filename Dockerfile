@@ -9,6 +9,6 @@ FROM node:carbon-alpine
 
 WORKDIR /app
 COPY --from=builder /tmp ./
-RUN rm -rf src test
+RUN rm -rf src test && rm -rf node_modules && npm i --production
 ENTRYPOINT ["npm", "run"]
 CMD ["start:prod"]
