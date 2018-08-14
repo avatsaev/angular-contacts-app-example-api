@@ -12,6 +12,11 @@ export class ContactsController {
         return this.contactsService.index();
     }
 
+    @Get(':id')
+    async show(@Param('id') id) {
+        return this.contactsService.show(id);
+    }
+
     @Post()
     async create(@Body() contact: ContactEntity) {
         return this.contactsService.create(contact);
