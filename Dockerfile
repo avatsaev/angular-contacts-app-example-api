@@ -1,19 +1,15 @@
-### STAGE 1: Build ###
-
-# We label our stage as 'builder'
-FROM node:8-alpine
-
-COPY package.json .
-
-## Storing node modules on a separate layer will prevent unnecessary npm installs at each build
-RUN npm i && mkdir /app && cp -R ./node_modules ./app
-
-WORKDIR /app
+FROM node:carbon-alpine as builder
+WORKDIR /tmp/
 
 COPY . .
+RUN npm install
+RUN npm run build:prod
 
-VOLUME /app/data
+FROM node:carbon-alpine
 
-EXPOSE 3000
-
-CMD ["npm", "start"]
+WORKDIR /app
+COPY --from=builder /tmp ./
+ENV NODE_ENV production
+RUN rm -rf src test && npm prune
+ENTRYPOINT ["npm", "run"]
+CMD ["start:prod"]
