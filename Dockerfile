@@ -9,6 +9,7 @@ FROM node:carbon-alpine
 
 WORKDIR /app
 COPY --from=builder /tmp ./
-RUN rm -rf src test && rm -rf node_modules && npm i --production
+ENV NODE_ENV production
+RUN rm -rf src test && npm prune
 ENTRYPOINT ["npm", "run"]
 CMD ["start:prod"]
