@@ -1,0 +1,28 @@
+
+version: '3'
+
+services:
+  db:
+    image: postgres:10
+    restart: always
+    volumes:
+    - ./data/contacts_db:/contacts_db
+    environment:
+      POSTGRES_USER: contacts_admin
+      POSTGRES_PASSWORD: contacts_admin_pass
+      POSTGRES_DB: contacts_dev
+      PGDATA: /contacts_db
+
+  api:
+    build: .
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: contacts_admin
+      DB_PASS: contacts_admin_pass
+      DB_NAME: contacts_dev
