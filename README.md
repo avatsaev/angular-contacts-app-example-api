@@ -9,11 +9,7 @@ Runs on postgres database
 ## Env VARS:
 
 - SERVER_PORT: 3000 default
-- DB_HOST: localhost
-- DB_PORT: 5432
-- DB_USER: required
-- DB_PASS: required
-- DB_NAME: required
+- DB_URL: Postgres connection URL
 
 ## Run
 
