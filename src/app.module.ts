@@ -8,9 +8,17 @@ import { ContactsModule } from './contacts/contacts.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      url: process.env.DB_URL,
+      logging: true,
       entities: [__dirname + '/../**/*.entity{.ts,.js}'],
       synchronize: true,
+      replication: {
+        master: {
+          url:  process.env.DB_MASTER_URL,
+        },
+        slaves: [
+          {url: process.env.DB_REPLICAS_URL}
+        ]
+      }
     }),
     ContactsModule,
   ],
