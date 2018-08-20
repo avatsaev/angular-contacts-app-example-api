@@ -5,8 +5,8 @@ services:
   db:
     image: postgres:10
     restart: always
-    volumes:
-    - ./data/contacts_db:/contacts_db
+#    volumes:
+#    - ./data/contacts_db:/contacts_db
     environment:
       POSTGRES_USER: contacts_admin
       POSTGRES_PASSWORD: contacts_admin_pass

@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-
 import {TypeOrmModule} from '@nestjs/typeorm';
 import { ContactsModule } from './contacts/contacts.module';
 
@@ -15,14 +14,13 @@ import { ContactsModule } from './contacts/contacts.module';
         master: {
           url:  process.env.DB_MASTER_URL,
         },
-        slaves: [
+        slaves: process.env.DB_REPLICAS_URL ? [
           {url: process.env.DB_REPLICAS_URL}
-        ]
+        ] : []
       }
     }),
     ContactsModule,
   ],
   controllers: [AppController],
-  providers: [],
 })
 export class AppModule {}

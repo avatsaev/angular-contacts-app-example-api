@@ -2,12 +2,14 @@ import { Injectable } from '@nestjs/common';
 import {ContactEntity} from '../entities/contact.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import {ContactsGateway} from '../gateways/contacts.gateway';
 
 @Injectable()
 export class ContactsService {
 
   constructor(
-      @InjectRepository(ContactEntity) private contacts: Repository<ContactEntity>
+      @InjectRepository(ContactEntity) private contacts: Repository<ContactEntity>,
+      private contactsGateway: ContactsGateway
   ) {}
 
   async index() {
@@ -19,17 +21,23 @@ export class ContactsService {
   }
 
   async create(contact: ContactEntity) {
-      return await this.contacts.save(contact);
+
+      const c = await this.contacts.save(contact);
+      this.contactsGateway.contactCreated(c);
+      return c;
   }
 
   async update(id: number, contact: Partial<ContactEntity>){
       await this.contacts.update(id, contact);
-
-      return await this.show(id);
+      const c = await this.contacts.findOne(id);
+      this.contactsGateway.contactUpdated(c);
+      return c;
   }
 
   async delete(id){
-      return await this.contacts.delete(id);
+      await this.contacts.delete(id);
+      this.contactsGateway.contactDeleted(id);
+      return;
   }
 
 }
