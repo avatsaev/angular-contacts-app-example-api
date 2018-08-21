@@ -5,15 +5,14 @@ import {
     WebSocketGateway,
     WebSocketServer
 } from '@nestjs/websockets';
+
 import {Contact} from '../models/contact';
 import {CONTACTS_ACTIONS} from '../actions/contact.actions';
-import * as redisAdapter from 'socket.io-redis';
+import {getRedisAdapter} from '../helpers';
 
 @WebSocketGateway({
     namespace: '/contacts',
-    adapter: redisAdapter({
-        host: process.env.REDIS_HOST
-    })
+    adapter: getRedisAdapter(process.env.REDIS_HOST)
 })
 export class ContactsGateway implements OnGatewayConnection, OnGatewayDisconnect, OnGatewayInit {
 
