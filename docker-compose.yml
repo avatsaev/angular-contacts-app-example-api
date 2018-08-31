@@ -15,6 +15,12 @@ services:
       POSTGRES_DB: contacts_dev
       PGDATA: /contacts_dev
 
+
+  redis:
+    image: redis:4.0.11-alpine
+    ports:
+    - 6379:6379
+
   api:
     build: .
     restart: always
@@ -24,3 +30,4 @@ services:
       - db
     environment:
       DB_MASTER_URL: postgres://contacts_dev:contacts_dev_pass@db/contacts_dev
+      REDIS_HOST: redis

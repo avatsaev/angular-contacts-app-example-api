@@ -9,22 +9,22 @@ export class ContactsController {
 
     @Get()
     async index() {
-        return this.contactsService.index();
+        return await this.contactsService.index();
     }
 
     @Get(':id')
     async show(@Param('id') id) {
-        return this.contactsService.show(id);
+        return await this.contactsService.show(id);
     }
 
     @Post()
     async create(@Body() contact: ContactEntity) {
-        return this.contactsService.create(contact);
+        return await this.contactsService.create(contact);
     }
 
     @Patch(':id')
     async update(@Body() contactData: ContactEntity, @Param('id') id) {
-        return this.contactsService.update(id, contactData);
+        return await this.contactsService.update(id, contactData);
     }
 
     @HttpCode(204)

@@ -8,11 +8,9 @@ import {
 
 import {Contact} from '../models/contact';
 import {CONTACTS_ACTIONS} from '../actions/contact.actions';
-import {getRedisAdapter} from '../helpers';
 
 @WebSocketGateway({
-    namespace: '/contacts',
-    adapter: getRedisAdapter(process.env.REDIS_HOST)
+    namespace: '/contacts'
 })
 export class ContactsGateway implements OnGatewayConnection, OnGatewayDisconnect, OnGatewayInit {
 
