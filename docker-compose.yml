@@ -8,7 +8,7 @@ services:
     ports:
       - 5432:5432
     volumes:
-    - ./data/contacts_db:/contacts_db
+    - ./volumes/contacts_db:/contacts_db
     environment:
       POSTGRES_USER: contacts_db
       POSTGRES_PASSWORD: contacts_db_pass
