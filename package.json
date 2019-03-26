@@ -1,55 +1,58 @@
 {
   "name": "contacts-api",
-  "version": "1.0.0",
-  "description": "description",
+  "version": "2.0.0",
+  "description": "",
   "author": "",
   "license": "MIT",
   "scripts": {
-    "format": "prettier --write \"**/*.ts\"",
+    "build": "tsc -p tsconfig.build.json",
+    "format": "prettier --write \"src/**/*.ts\"",
     "start": "ts-node -r tsconfig-paths/register src/main.ts",
-    "start:dev": "SERVER_PORT=3002 DB_MASTER_URL='postgres://contacts_dev:contacts_dev_pass@dev.contacts.com:5432/contacts_dev' REDIS_HOST='192.168.124.76' npx nodemon",
-    "build:prod": "rm -rf dist && tsc",
+    "start:dev": "nodemon",
+    "start:debug": "nodemon --config nodemon-debug.json",
+    "prestart:prod": "rimraf dist && npm run build",
     "start:prod": "node dist/main.js",
-    "start:hmr": "node dist/server",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",
+    "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
-    "test:e2e": "jest --config ./test/jest-e2e.json",
-    "webpack": "webpack --config webpack.config.js"
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@nestjs/common": "^5.3.0",
-    "@nestjs/core": "^5.3.0",
-    "@nestjs/typeorm": "^5.2.0",
-    "@nestjs/websockets": "^5.3.0",
-    "fastify-formbody": "^2.0.1",
-    "pg": "^7.4.3",
+    "@nestjs/common": "^6.0.0",
+    "@nestjs/core": "^6.0.0",
+    "@nestjs/platform-express": "^6.0.0",
+    "@nestjs/platform-socket.io": "^6.0.2",
+    "@nestjs/typeorm": "^6.0.0",
+    "@nestjs/websockets": "^6.0.2",
+    "@nestjsx/crud": "^3.1.0",
+    "class-transformer": "^0.2.0",
+    "class-validator": "^0.9.1",
+    "pg": "^7.9.0",
     "reflect-metadata": "^0.1.12",
-    "rxjs": "^6.3.0",
+    "rimraf": "^2.6.2",
+    "rxjs": "^6.3.3",
     "socket.io-redis": "^5.2.0",
-    "typeorm": "^0.2.7",
-    "typescript": "^2.9.2"
+    "typeorm": "^0.2.15"
   },
   "devDependencies": {
-    "@nestjs/testing": "^5.3.0",
-    "@types/express": "^4.0.39",
-    "@types/jest": "^21.1.8",
-    "@types/node": "^9.3.0",
-    "@types/socket.io": "^1.4.36",
+    "@nestjs/testing": "^6.0.0",
+    "@types/express": "^4.16.0",
+    "@types/jest": "^23.3.13",
+    "@types/node": "^10.12.18",
+    "@types/socket.io": "^2.1.2",
     "@types/socket.io-redis": "^1.0.25",
-    "@types/supertest": "^2.0.4",
-    "jest": "^21.2.1",
-    "nodemon": "^1.14.1",
-    "prettier": "^1.11.1",
-    "socket.io": "^2.1.1",
-    "supertest": "^3.0.0",
-    "ts-jest": "^21.2.4",
-    "ts-loader": "^4.1.0",
-    "ts-node": "^4.1.0",
-    "tsconfig-paths": "^3.1.1",
-    "tslint": "5.3.2",
-    "webpack": "^4.2.0",
-    "webpack-cli": "^2.0.13",
-    "webpack-node-externals": "^1.6.0"
+    "@types/supertest": "^2.0.7",
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.9",
+    "prettier": "^1.15.3",
+    "supertest": "^3.4.1",
+    "ts-jest": "^23.10.5",
+    "ts-node": "^7.0.1",
+    "tsconfig-paths": "^3.7.0",
+    "tslint": "5.12.1",
+    "typescript": "^3.2.4"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -62,6 +65,7 @@
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
-    "coverageDirectory": "../coverage"
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
   }
 }

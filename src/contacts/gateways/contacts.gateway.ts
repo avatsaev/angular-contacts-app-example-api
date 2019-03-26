@@ -14,7 +14,7 @@ import {CONTACTS_ACTIONS} from '../actions/contact.actions';
 })
 export class ContactsGateway implements OnGatewayConnection, OnGatewayDisconnect, OnGatewayInit {
 
-    @WebSocketServer() private _socket;
+    @WebSocketServer() private server;
 
     afterInit() {
         console.log('socket initialized');
@@ -30,16 +30,16 @@ export class ContactsGateway implements OnGatewayConnection, OnGatewayDisconnect
 
     contactCreated(contact: Contact) {
         console.log('CT-GATEWAY: contact created', contact);
-        this._socket.emit(CONTACTS_ACTIONS.LIVE_CREATED, contact);
+        this.server.emit(CONTACTS_ACTIONS.LIVE_CREATED, contact);
     }
 
     contactUpdated(contact: Contact) {
         console.log('CT-GATEWAY: contact updated', contact);
-        this._socket.emit(CONTACTS_ACTIONS.LIVE_UPDATED, contact);
+        this.server.emit(CONTACTS_ACTIONS.LIVE_UPDATED, contact);
     }
 
     contactDeleted(id: number) {
         console.log('CT-GATEWAY: contact deleted', id);
-        this._socket.emit(CONTACTS_ACTIONS.LIVE_DELETED, id);
+        this.server.emit(CONTACTS_ACTIONS.LIVE_DELETED, id);
     }
 }

@@ -1,26 +1,20 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import {TypeOrmModule} from '@nestjs/typeorm';
+import { config } from './config';
 import { ContactsModule } from './contacts/contacts.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      logging: true,
-      entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-      synchronize: true,
-      replication: {
-        master: {
-          url:  process.env.DB_MASTER_URL,
-        },
-        slaves: process.env.DB_REPLICAS_URL ? [
-          {url: process.env.DB_REPLICAS_URL}
-        ] : []
-      }
-    }),
+    TypeOrmModule.forRoot(config.database),
     ContactsModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController]
 })
-export class AppModule {}
+export class AppModule {
+
+  constructor() {
+    console.log(config.database);
+  }
+
+}

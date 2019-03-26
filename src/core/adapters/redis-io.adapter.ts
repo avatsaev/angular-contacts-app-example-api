@@ -1,5 +1,5 @@
-import { IoAdapter } from '@nestjs/websockets';
-import {getRedisAdapter} from './contacts/helpers';
+import { IoAdapter } from '@nestjs/platform-socket.io';
+import {getRedisAdapter} from '../helpers';
 
 const redisAdapter = getRedisAdapter(process.env.REDIS_HOST);
 
