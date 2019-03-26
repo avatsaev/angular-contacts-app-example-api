@@ -1,2 +1,7 @@
-volumes
+test
 node_modules
+dist
+.git
+.idea
+data
+volumes
