@@ -11,10 +11,4 @@ import { ContactsModule } from './contacts/contacts.module';
   ],
   controllers: [AppController]
 })
-export class AppModule {
-
-  constructor() {
-    console.log(config.database);
-  }
-
-}
+export class AppModule {}

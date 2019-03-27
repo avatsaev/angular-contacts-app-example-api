@@ -5,6 +5,8 @@ services:
   db:
     image: postgres:11-alpine
     restart: always
+    ports:
+      - 5432:5432
     volumes:
     - ./volumes/contacts_db:/contacts_db
     environment:
@@ -16,6 +18,8 @@ services:
 
   redis:
     image: redis:5-alpine
+    ports:
+      - 6379:6379
     volumes:
       - ./volumes/redis:/data
 
