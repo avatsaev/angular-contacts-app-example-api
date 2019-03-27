@@ -1,11 +1,11 @@
 import { IoAdapter } from '@nestjs/platform-socket.io';
-import {getRedisAdapter} from '../helpers';
+import * as redisIoAdapter from 'socket.io-redis';
+import { config } from '../../config';
 
-const redisAdapter = getRedisAdapter(process.env.REDIS_HOST);
+const redisAdapter = redisIoAdapter({ host: config.redis.host, port: config.redis.port });
 
 export class RedisIoAdapter extends IoAdapter {
   createIOServer(port: number, options?: any): any {
-    console.log('connecting to redis adapter...');
     const server = super.createIOServer(port, options);
     server.adapter(redisAdapter);
     return server;

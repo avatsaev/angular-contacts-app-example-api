@@ -15,7 +15,7 @@ export const config: AppConfiguration = {
   redis: {
     host: process.env.REDIS_HOST || '127.0.0.1',
     port: Number(process.env.REDIS_PORT) || 6379,
-    enabled: process.env.REDIS_ENABLED || false
+    enabled: process.env.REDIS_ENABLED || true
   },
   database: {
     type: 'postgres',
