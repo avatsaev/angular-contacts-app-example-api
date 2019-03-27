@@ -4,3 +4,4 @@ dist
 .git
 .idea
 data
+volumes
