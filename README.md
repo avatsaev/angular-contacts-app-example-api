@@ -11,6 +11,8 @@ This backend is based on NestJS Framework V6 (https://nestjs.com/)
 - Synchronises sockets thourgh Redis adapter for horizontal scaling 
 
 
+**Frontend is available here: https://github.com/avatsaev/angular-contacts-app-example**
+
 
 ## Env VARS:
       SERVER_PORT: 3000
