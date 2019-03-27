@@ -13,12 +13,15 @@ This backend is based on NestJS Framework V6 (https://nestjs.com/)
 
 
 ## Env VARS:
-- SERVER_PORT: 3000
-- POSTGRES_USER
-- POSTGRES_PASSWORD
-- POSTGRES_DB
-- REDIS_HOST: redis
-- REDIS_PORT: 6379
+      SERVER_PORT: 3000
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: contacts_db
+      POSTGRES_PASSWORD: contacts_db_pass
+      POSTGRES_DB: contacts_db
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_ENABLED: 'true'
 
 ## Run
 
