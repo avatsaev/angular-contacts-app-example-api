@@ -1,6 +1,6 @@
 # Contacts API
 
-This backend is based on NestJS Framework V5 (https://nestjs.com/)
+This backend is based on NestJS Framework V6 (https://nestjs.com/)
 
 
 ## Docker
