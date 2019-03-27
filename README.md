@@ -8,7 +8,7 @@ This backend is based on NestJS Framework V6 (https://nestjs.com/)
 
 - DB: Postgres
 - Websockets: Socket.io
-- Synchronises sockets thourgh redis adapter for horiznatal scaling 
+- Synchronises sockets thourgh Redis adapter for horizontal scaling 
 
 
 
