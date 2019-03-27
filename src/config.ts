@@ -1,7 +1,7 @@
 import { ConnectionOptions } from 'typeorm';
 
 export interface AppConfiguration {
-  appPort: number;
+  serverPort: number;
   redis?: {
     host: string,
     port: number,
@@ -11,7 +11,7 @@ export interface AppConfiguration {
 }
 
 export const config: AppConfiguration = {
-  appPort: 3000,
+  serverPort: Number(process.env.SERVER_PORT) || 3000,
   redis: {
     host: process.env.REDIS_HOST || '127.0.0.1',
     port: Number(process.env.REDIS_PORT) || 6379,

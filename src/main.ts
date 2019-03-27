@@ -10,6 +10,6 @@ import { config } from './config';
 
     console.log('INFO: Redis adapter enabled');
   }
-  await app.listen(config.appPort);
-  console.info('SERVER IS RUNNING ON PORT', config.appPort);
+  await app.listen(config.serverPort);
+  console.info('SERVER IS RUNNING ON PORT', config.serverPort);
 })();
