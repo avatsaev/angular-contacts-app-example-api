@@ -28,6 +28,8 @@ services:
       - db
       - redis
     environment:
-      DB_MASTER_URL: postgres://contacts_db:contacts_db_pass@db/contacts_db
+      POSTGRES_USER: contacts_db
+      POSTGRES_PASSWORD: contacts_db_pass
+      POSTGRES_DB: contacts_db
       REDIS_HOST: redis
       REDIS_PORT: 6379
