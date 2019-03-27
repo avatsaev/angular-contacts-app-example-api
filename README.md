@@ -1,15 +1,24 @@
-# Contacts API
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
+</p>
 
-This backend is based on NestJS Framework V5 (https://nestjs.com/)
+# NestJS Contacts API
+
+This backend is based on NestJS Framework V6 (https://nestjs.com/)
+
+- DB: Postgres
+- Websockets: Socket.io
+- Synchronises sockets thourgh Redis adapter for horizontal scaling 
 
 
-## Docker
-Runs on postgres database
 
 ## Env VARS:
-
-- SERVER_PORT: 3000 default
-- DB_URL: Postgres connection URL
+- SERVER_PORT: 3000
+- POSTGRES_USER
+- POSTGRES_PASSWORD
+- POSTGRES_DB
+- REDIS_HOST: redis
+- REDIS_PORT: 6379
 
 ## Run
 
