@@ -2,7 +2,7 @@ import {Column, CreateDateColumn, Entity, PrimaryColumn, PrimaryGeneratedColumn,
 import {Contact} from '../models/contact';
 
 @Entity()
-export class ContactEntity implements Contact{
+export class ContactEntity implements Contact {
 
     @PrimaryGeneratedColumn()
     id: number;

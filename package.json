@@ -24,9 +24,10 @@
     "@nestjs/core": "^6.0.0",
     "@nestjs/platform-express": "^6.0.0",
     "@nestjs/platform-socket.io": "^6.0.2",
+    "@nestjs/swagger": "^3.0.2",
     "@nestjs/typeorm": "^6.0.0",
     "@nestjs/websockets": "^6.0.2",
-    "@nestjsx/crud": "^3.1.0",
+    "@nestjsx/crud": "^3.2.0",
     "class-transformer": "^0.2.0",
     "class-validator": "^0.9.1",
     "pg": "^7.9.0",
@@ -34,7 +35,8 @@
     "rimraf": "^2.6.2",
     "rxjs": "^6.3.3",
     "socket.io-redis": "^5.2.0",
-    "typeorm": "^0.2.15"
+    "swagger": "^0.7.5",
+    "typeorm": "^0.2.16"
   },
   "devDependencies": {
     "@nestjs/testing": "^6.0.0",
