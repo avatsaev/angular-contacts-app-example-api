@@ -4,6 +4,8 @@
 
 # NestJS Contacts API
 
+This project uses [@nestjsx/crud](https://github.com/nestjsx/crud) to simplify and standardize the REST API
+
 This backend is based on NestJS Framework V6 (https://nestjs.com/)
 
 - DB: Postgres
