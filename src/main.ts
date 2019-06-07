@@ -6,8 +6,10 @@ import { config } from './config';
 (async () => {
   const app = await NestFactory.create(AppModule, {cors: true});
   if (config.redis.enabled) {
-    app.useWebSocketAdapter(new RedisIoAdapter());
-
+    app.useWebSocketAdapter(new RedisIoAdapter({
+      host: config.redis.host,
+      port: config.redis.port
+    }));
     console.log('INFO: Redis adapter enabled');
   }
   await app.listen(config.serverPort);

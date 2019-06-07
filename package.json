@@ -20,26 +20,26 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@nestjs/common": "^6.0.0",
-    "@nestjs/core": "^6.0.0",
-    "@nestjs/platform-express": "^6.0.0",
-    "@nestjs/platform-socket.io": "^6.0.2",
+    "@nestjs/common": "^6.3.1",
+    "@nestjs/core": "^6.3.1",
+    "@nestjs/platform-express": "^6.3.1",
+    "@nestjs/platform-socket.io": "^6.3.1",
     "@nestjs/swagger": "^3.0.2",
-    "@nestjs/typeorm": "^6.0.0",
-    "@nestjs/websockets": "^6.0.2",
+    "@nestjs/typeorm": "^6.1.2",
+    "@nestjs/websockets": "^6.3.1",
     "@nestjsx/crud": "^3.2.0",
     "class-transformer": "^0.2.0",
     "class-validator": "^0.9.1",
-    "pg": "^7.9.0",
+    "pg": "^7.11.0",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
-    "rxjs": "^6.3.3",
+    "rxjs": "^6.5.2",
     "socket.io-redis": "^5.2.0",
     "swagger": "^0.7.5",
-    "typeorm": "^0.2.16"
+    "typeorm": "^0.2.18"
   },
   "devDependencies": {
-    "@nestjs/testing": "^6.0.0",
+    "@nestjs/testing": "^6.3.1",
     "@types/express": "^4.16.0",
     "@types/jest": "^23.3.13",
     "@types/node": "^10.12.18",
@@ -54,7 +54,7 @@
     "ts-node": "^7.0.1",
     "tsconfig-paths": "^3.7.0",
     "tslint": "5.12.1",
-    "typescript": "^3.2.4"
+    "typescript": "^3.5.1"
   },
   "jest": {
     "moduleFileExtensions": [
